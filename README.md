@@ -1,21 +1,31 @@
-# a
+[issue](https://github.com/vuejs/vue-cli/issues/1978)
 
-## Project setup
+## Step
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Lints and fixes files
+
+## check
+
+see dist/index.html
+
 ```
-npm run lint
+  <link href=/css/app.eca329cd.css rel=stylesheet>
+  <link href=/css/chunk-elementUI.aed9c24b.css rel=stylesheet>
 ```
+
+```diff
+  //vue.config.js
+  configureWebpack: {
+    optimization: {
++     runtimeChunk: 'single'
+    }
+  }
+```
+
+When I add `runtimeChunk`, the order is wrong.
